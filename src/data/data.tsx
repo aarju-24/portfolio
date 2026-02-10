@@ -202,14 +202,14 @@ export const education: TimelineItem[] = [
     ),
   },
   {
-    date: '2021-2023',
-    location: 'Delhi Public School, Gwalior',
+    date: '2021-2022',
+    location: 'Moga Devi Minda Memorial School, Hisar',
     title: '12th Grade (Senior Secondary)',
     content: <p>Science stream with focus on Mathematics, Physics, and Chemistry.</p>,
   },
   {
-    date: '2019-2021',
-    location: 'Delhi Public School, Gwalior',
+    date: '2019-2020',
+    location: 'Moga Devi Minda Memorial School, Hisar',
     title: '10th Grade (Secondary)',
     content: <p>Completed secondary education with strong foundation in core subjects.</p>,
   },
