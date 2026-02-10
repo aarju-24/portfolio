@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------
+   Global Base Styles
+-------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white font-sans text-base antialiased;
+  color: #111827;
+}
+
+/* -------------------------
+   Typography
+-------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-semibold;
+  color: #111827;
+}
+
+p {
+  @apply leading-relaxed;
+  color: #374151;
+}
+
+/* -------------------------
+   Links & Buttons
+-------------------------- */
+
+a {
+  @apply underline-offset-4 hover:underline;
+  color: #0ea5e9;
+}
+
+button {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  --tw-ring-color: #0ea5e9;
+}
+
+/* -------------------------
+   Cards & Borders
+-------------------------- */
+
+.card {
+  @apply bg-white border rounded-lg shadow-card;
+  border-color: #e5e7eb;
+}
+
+/* -------------------------
+   Selection Styling
+-------------------------- */
+
+::selection {
+  background-color: #dbeafe;
+  color: #1e3a8a;
+}
+
+/* -------------------------
+   Animations
+-------------------------- */
+
+@keyframes fadeInStagger {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-stagger {
+  animation: fadeInStagger 0.5s ease-out forwards;
+}
+
+/* -------------------------
+   Disable Flashy Effects
+-------------------------- */
+
+* {
+  animation: none !important;
+  transition-property: color, background-color, border-color, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* -------------------------
+   Disable Automatic Dark Mode
+-------------------------- */
+
+:root {
+  color-scheme: light;
+}
+
