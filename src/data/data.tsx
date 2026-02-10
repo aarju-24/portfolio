@@ -57,11 +57,14 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: '/assets/resume.pdf',
-      text: 'Download Resume',
-      primary: true,
-      Icon: ArrowDownTrayIcon,
-    },
+
+        href: '/assets/resume.pdf',
+        text: 'View Resume',
+        primary: true,
+        Icon: ArrowDownTrayIcon,
+
+      }
+,
     {
       href: `#${SectionId.Contact}`,
       text: 'Contact',
