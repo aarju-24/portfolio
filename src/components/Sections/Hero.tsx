@@ -12,8 +12,8 @@ const Hero: FC = memo(() => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
         delayChildren: 0.1,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -22,27 +22,27 @@ const Hero: FC = memo(() => {
     hidden: {opacity: 0, y: 20},
     visible: {
       opacity: 1,
-      y: 0,
       transition: {
         duration: 0.6,
         ease: 'easeOut',
       },
+      y: 0,
     },
   };
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" id="hero">
-      <div className="pointer-events-none absolute top-0 left-1/2 h-px w-[70%] -translate-x-1/2 bg-gradient-to-r from-transparent via-purple-500/70 to-transparent" />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-[70%] -translate-x-1/2 bg-gradient-to-r from-transparent via-purple-500/70 to-transparent" />
 
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-purple-500/15 blur-3xl" />
-        <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl" />
-        <div className="absolute top-40 -right-40 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
+        <div className="absolute -left-40 -top-40 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl" />
+        <div className="absolute -right-40 top-40 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 py-10">
         <motion.div
-          className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 rounded-b-3xl bg-gradient-to-b from-transparent to-slate-800/30 backdrop-blur-sm p-8 md:p-12"
+          className="grid grid-cols-1 items-center gap-12 rounded-b-3xl bg-gradient-to-b from-transparent to-slate-800/30 backdrop-blur-sm p-8 md:grid-cols-2 md:p-12"
           initial="hidden"
           variants={containerVariants}
           viewport={{once: true}}
@@ -50,18 +50,19 @@ const Hero: FC = memo(() => {
 
           {/* LEFT CONTENT */}
           <div className="space-y-6">
-            <motion.p className="text-xs tracking-widest uppercase text-white/50" variants={itemVariants}>
+            <motion.p className="text-xs uppercase tracking-widest text-white/50" variants={itemVariants}>
               Data Analyst
             </motion.p>
 
             <motion.div variants={itemVariants}>
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight text-white">
+              <h1 className="text-5xl font-bold leading-tight text-white md:text-6xl">
                 Hi, I'm{' '}
                 <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                   Arzoo
                 </span>
               </h1>
-              <p className="mt-3 text-xl text-slate-300 font-medium">
+
+              <p className="mt-3 text-xl font-medium text-slate-300">
                 I build reliable data solutions with a focus on real-world usability.
               </p>
             </motion.div>
@@ -69,15 +70,15 @@ const Hero: FC = memo(() => {
             <motion.p className="text-base leading-relaxed text-slate-400" variants={itemVariants}>
               I enjoy building real-world data analytics applications, from clean user interfaces to backend systems
               that support them. Lately, I've been working mostly with{' '}
-              <span className="inline-block rounded-full bg-blue-500/20 px-2 py-1 text-sm text-blue-300 border border-blue-500/30">
+              <span className="inline-block rounded-full border border-blue-500/30 bg-blue-500/20 px-2 py-1 text-sm text-blue-300">
                 SQL
               </span>
               ,{' '}
-              <span className="inline-block rounded-full bg-purple-500/20 px-2 py-1 text-sm text-purple-300 border border-purple-500/30">
+              <span className="inline-block rounded-full border border-purple-500/30 bg-purple-500/20 px-2 py-1 text-sm text-purple-300">
                 Python
               </span>
               ,{' '}
-              <span className="inline-block rounded-full bg-green-500/20 px-2 py-1 text-sm text-green-300 border border-green-500/30">
+              <span className="inline-block rounded-full border border-green-500/30 bg-green-500/20 px-2 py-1 text-sm text-green-300">
                 Machine Learning
               </span>
               , focusing on readable code, performance, and real-world features.
@@ -93,12 +94,12 @@ const Hero: FC = memo(() => {
                 Get in touch
               </motion.a>
 
-              {/* ✅ FIXED RESUME BUTTON */}
+              {/* RESUME BUTTON */}
               <motion.a
                 className="inline-flex items-center gap-2 rounded-lg border border-slate-600 px-6 py-3 font-semibold text-white transition-all duration-200 hover:border-slate-400 hover:bg-slate-800/50"
                 href="/assets/resume.pdf"
-                target="_blank"
                 rel="noopener noreferrer"
+                target="_blank"
                 whileHover={{scale: 1.05, y: -2}}
                 whileTap={{scale: 0.95}}>
                 Resume / CV
@@ -108,20 +109,22 @@ const Hero: FC = memo(() => {
             {/* SOCIAL ICONS */}
             <motion.div className="flex items-center gap-6 pt-4" variants={itemVariants}>
               {[
-                {label: 'GitHub', href: '#', icon: GithubIcon},
-                {label: 'LinkedIn', href: '#', icon: LinkedInIcon},
+                {href: '#', icon: GithubIcon, label: 'GitHub'},
+                {href: '#', icon: LinkedInIcon, label: 'LinkedIn'},
               ].map(social => {
                 const Icon = social.icon;
                 return (
                   <motion.a
-                    className="group relative text-slate-400 transition-all duration-200 hover:text-white hover:-translate-y-0.5"
+                    className="group relative text-slate-400 transition-all duration-200 hover:-translate-y-0.5 hover:text-white"
                     href={social.href}
                     key={social.label}
                     target="_blank"
                     whileHover={{scale: 1.1}}>
-                    <span className="pointer-events-none absolute -top-8 whitespace-nowrap rounded-md border border-slate-700 bg-slate-900/80 backdrop-blur px-2 py-1 text-xs text-white opacity-0 transition-all duration-200 group-hover:opacity-100">
+
+                    <span className="pointer-events-none absolute -top-8 whitespace-nowrap rounded-md border border-slate-700 bg-slate-900/80 px-2 py-1 text-xs text-white opacity-0 backdrop-blur transition-all duration-200 group-hover:opacity-100">
                       {social.label}
                     </span>
+
                     <Icon className="h-6 w-6" />
                   </motion.a>
                 );
@@ -133,23 +136,23 @@ const Hero: FC = memo(() => {
           <motion.div
             className="flex justify-center"
             initial={{opacity: 0, scale: 0.9}}
-            transition={{duration: 0.6, delay: 0.2}}
+            transition={{delay: 0.2, duration: 0.6}}
             whileInView={{opacity: 1, scale: 1}}>
 
             <motion.div
               animate={{scale: [1, 1.1, 1]}}
-              className="absolute h-96 w-96 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
+              className="absolute h-96 w-96 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-3xl"
               transition={{duration: 4, repeat: Infinity}}
             />
 
             <motion.div
               className="group relative overflow-hidden rounded-2xl border-2 border-slate-700 bg-slate-800/50 backdrop-blur shadow-2xl"
               transition={{duration: 0.3}}
-              whileHover={{scale: 1.05, borderColor: '#a78bfa'}}>
+              whileHover={{borderColor: '#a78bfa', scale: 1.05}}>
 
               <Image
                 alt="Arzoo profile"
-                className="h-80 w-80 object-cover transition-all duration-300 group-hover:blur-0 blur-sm"
+                className="h-80 w-80 object-cover blur-sm transition-all duration-300 group-hover:blur-0"
                 height={320}
                 priority
                 src={profilePic}
